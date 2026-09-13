@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,10 @@ content="Furniture by Sharmaji — crafted furniture and interiors in Mandsaur."
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --wood:#5b3925;
-  --wood-dark:#3b2418;
+  --wood-dark:#2b1a11;
   --wood-light:#8a6548;
   --cream:#f5f1e8;
   --white:#fff;
@@ -28,7 +30,11 @@ content="Furniture by Sharmaji — crafted furniture and interiors in Mandsaur."
   --ease:cubic-bezier(.2,.75,.2,1);
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 html{
   scroll-behavior:smooth;
@@ -55,7 +61,9 @@ a{
   text-decoration:none;
 }
 
-button,input,textarea{
+button,
+input,
+textarea{
   font:inherit;
 }
 
@@ -68,7 +76,10 @@ button{
   color:white;
 }
 
-/* PRELOADER */
+
+/* =========================
+   PRELOADER
+========================= */
 
 .preloader{
   position:fixed;
@@ -121,10 +132,15 @@ button{
 }
 
 @keyframes loading{
-  to{transform:translateX(480%)}
+  to{
+    transform:translateX(480%);
+  }
 }
 
-/* NAV */
+
+/* =========================
+   NAVIGATION
+========================= */
 
 .nav{
   position:fixed;
@@ -223,7 +239,10 @@ button{
   font-size:20px;
 }
 
-/* GENERAL */
+
+/* =========================
+   GLOBAL
+========================= */
 
 section{
   padding:120px 5vw;
@@ -232,7 +251,10 @@ section{
 
 .wood-section{
   background:
-    linear-gradient(rgba(70,42,27,.94),rgba(70,42,27,.94)),
+    linear-gradient(
+      rgba(70,42,27,.96),
+      rgba(70,42,27,.96)
+    ),
     repeating-linear-gradient(
       90deg,
       #5b3925 0,
@@ -240,6 +262,7 @@ section{
       #54331f 6px,
       #704a30 9px
     );
+
   color:white;
 }
 
@@ -273,15 +296,12 @@ section{
   background:currentColor;
 }
 
-h1,h2,h3{
-  font-family:"Playfair Display",serif;
-  font-weight:400;
-}
-
 .section-title{
+  font-family:"Playfair Display",serif;
   font-size:clamp(46px,6vw,82px);
   line-height:.96;
   letter-spacing:-.045em;
+  font-weight:400;
 }
 
 .section-head{
@@ -303,7 +323,10 @@ h1,h2,h3{
   color:#e2d5ca;
 }
 
-/* BUTTON */
+
+/* =========================
+   BUTTONS
+========================= */
 
 .btn{
   display:inline-flex;
@@ -338,7 +361,10 @@ h1,h2,h3{
   transform:translateY(-3px);
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:100svh;
@@ -364,10 +390,12 @@ h1,h2,h3{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(90deg,
+    linear-gradient(
+      90deg,
       rgba(24,14,8,.9) 0%,
       rgba(24,14,8,.62) 45%,
-      rgba(24,14,8,.22) 100%);
+      rgba(24,14,8,.22) 100%
+    );
 }
 
 .hero-content{
@@ -381,9 +409,11 @@ h1,h2,h3{
 }
 
 .hero h1{
+  font-family:"Playfair Display",serif;
   font-size:clamp(62px,9vw,130px);
   line-height:.86;
   letter-spacing:-.065em;
+  font-weight:400;
 }
 
 .hero h1 em{
@@ -418,43 +448,72 @@ h1,h2,h3{
   color:#d9cbc0;
 }
 
-/* ABOUT */
 
-.about-grid{
-  display:grid;
-  grid-template-columns:.85fr 1.15fr;
-  gap:9vw;
+/* =========================
+   ABOUT — BACKGROUND IMAGE
+========================= */
+
+.about-section{
+  min-height:780px;
+  display:flex;
   align-items:center;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(31,18,11,.94) 0%,
+      rgba(48,28,17,.82) 42%,
+      rgba(48,28,17,.48) 72%,
+      rgba(31,18,11,.78) 100%
+    ),
+    url("about.png") center center / cover no-repeat;
+
+  color:white;
 }
 
-.about-image{
-  position:relative;
-}
-
-.about-image:after{
+.about-section:before{
   content:"";
   position:absolute;
-  left:25px;
-  bottom:-25px;
-  width:55%;
-  height:55%;
-  border:1px solid rgba(255,255,255,.25);
-  z-index:0;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(25,15,9,.35),
+      transparent 40%,
+      rgba(20,12,7,.45)
+    );
+  pointer-events:none;
 }
 
-.about-image img{
+.about-content{
   position:relative;
-  z-index:1;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  box-shadow:var(--shadow);
+  z-index:2;
+  max-width:1400px;
+  width:100%;
+  margin:auto;
+}
+
+.about-inner{
+  max-width:760px;
+}
+
+.about-section .kicker{
+  color:#dbc09f;
+}
+
+.about-section .section-title{
+  max-width:750px;
+}
+
+.about-copy{
+  max-width:670px;
 }
 
 .about-copy p{
-  color:#ddd1c7;
+  color:#e2d5ca;
   font-size:14px;
   line-height:1.9;
-  max-width:650px;
   margin-top:22px;
 }
 
@@ -462,13 +521,15 @@ h1,h2,h3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:1px;
-  background:#ffffff25;
-  margin-top:42px;
+  max-width:720px;
+  margin-top:45px;
+  background:rgba(255,255,255,.2);
+  backdrop-filter:blur(8px);
 }
 
 .stat{
-  padding:25px 18px;
-  background:rgba(65,38,24,.85);
+  padding:27px 20px;
+  background:rgba(43,25,15,.65);
 }
 
 .stat strong{
@@ -486,7 +547,10 @@ h1,h2,h3{
   font-size:8px;
 }
 
-/* SERVICES */
+
+/* =========================
+   SERVICES
+========================= */
 
 .service-grid{
   display:grid;
@@ -522,7 +586,10 @@ h1,h2,h3{
   margin-top:14px;
 }
 
-/* PRODUCTS */
+
+/* =========================
+   PRODUCTS
+========================= */
 
 .product-showcase{
   display:grid;
@@ -546,8 +613,10 @@ h1,h2,h3{
 }
 
 .product-info h2{
+  font-family:"Playfair Display",serif;
   font-size:clamp(48px,6vw,82px);
   line-height:.92;
+  font-weight:400;
   margin:18px 0 22px;
 }
 
@@ -608,7 +677,9 @@ h1,h2,h3{
 .product-image img{
   height:100%;
   object-fit:cover;
-  transition:opacity .25s,transform .8s var(--ease);
+  transition:
+    opacity .25s,
+    transform .8s var(--ease);
 }
 
 .product-image.changing img{
@@ -628,7 +699,10 @@ h1,h2,h3{
   letter-spacing:.12em;
 }
 
-/* PROJECTS */
+
+/* =========================
+   PROJECTS
+========================= */
 
 .projects-layout{
   display:grid;
@@ -638,8 +712,10 @@ h1,h2,h3{
 }
 
 .project-details h2{
+  font-family:"Playfair Display",serif;
   font-size:clamp(48px,6vw,80px);
   line-height:.93;
+  font-weight:400;
   margin:16px 0 22px;
 }
 
@@ -688,7 +764,10 @@ h1,h2,h3{
   transform:scale(1.04);
 }
 
-/* CRAFT */
+
+/* =========================
+   CRAFT
+========================= */
 
 .craft-grid{
   display:grid;
@@ -732,7 +811,10 @@ h1,h2,h3{
   font-size:16px;
 }
 
-/* PROCESS */
+
+/* =========================
+   PROCESS
+========================= */
 
 .process-grid{
   display:grid;
@@ -768,7 +850,10 @@ h1,h2,h3{
   margin-top:12px;
 }
 
-/* WHY */
+
+/* =========================
+   WHY
+========================= */
 
 .why-grid{
   display:grid;
@@ -800,7 +885,10 @@ h1,h2,h3{
   line-height:1.75;
 }
 
-/* CTA */
+
+/* =========================
+   CTA
+========================= */
 
 .cta{
   background:var(--cream);
@@ -813,8 +901,10 @@ h1,h2,h3{
 }
 
 .cta h2{
+  font-family:"Playfair Display",serif;
   font-size:clamp(50px,7vw,95px);
   line-height:.92;
+  font-weight:400;
 }
 
 .cta p{
@@ -825,7 +915,10 @@ h1,h2,h3{
   line-height:1.8;
 }
 
-/* CONTACT */
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact-grid{
   display:grid;
@@ -835,8 +928,10 @@ h1,h2,h3{
 }
 
 .contact-copy h2{
+  font-family:"Playfair Display",serif;
   font-size:clamp(50px,6vw,80px);
   line-height:.93;
+  font-weight:400;
   margin:15px 0 25px;
 }
 
@@ -897,7 +992,10 @@ h1,h2,h3{
   resize:vertical;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   background:#17120f;
@@ -994,7 +1092,10 @@ footer{
   font-size:8px;
 }
 
-/* FLOATING BUTTONS */
+
+/* =========================
+   FLOATING BUTTONS
+========================= */
 
 .floating{
   position:fixed;
@@ -1027,7 +1128,10 @@ footer{
   height:20px;
 }
 
-/* REVEAL */
+
+/* =========================
+   REVEAL ANIMATIONS
+========================= */
 
 .reveal{
   opacity:0;
@@ -1042,17 +1146,26 @@ footer{
   transform:none;
 }
 
-.delay-1{transition-delay:.1s}
-.delay-2{transition-delay:.2s}
-.delay-3{transition-delay:.3s}
+.delay-1{
+  transition-delay:.1s;
+}
 
-/* MAGNETIC */
+.delay-2{
+  transition-delay:.2s;
+}
+
+.delay-3{
+  transition-delay:.3s;
+}
 
 .magnetic{
   will-change:transform;
 }
 
-/* RESPONSIVE */
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:950px){
 
@@ -1089,7 +1202,16 @@ footer{
     display:block;
   }
 
-  .about-grid,
+  .about-section{
+    min-height:720px;
+    background:
+      linear-gradient(
+        rgba(31,18,11,.78),
+        rgba(31,18,11,.9)
+      ),
+      url("about.png") center center / cover no-repeat;
+  }
+
   .product-showcase,
   .projects-layout,
   .craft-grid,
@@ -1121,7 +1243,13 @@ footer{
   .footer-links{
     flex-wrap:wrap;
   }
+
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -1148,6 +1276,31 @@ footer{
 
   .section-head p{
     margin-top:25px;
+  }
+
+  .about-section{
+    min-height:760px;
+    padding-top:100px;
+    padding-bottom:100px;
+
+    background:
+      linear-gradient(
+        rgba(31,18,11,.82),
+        rgba(31,18,11,.94)
+      ),
+      url("about.png") center center / cover no-repeat;
+  }
+
+  .about-inner{
+    max-width:100%;
+  }
+
+  .about-section .section-title{
+    font-size:48px;
+  }
+
+  .about-copy p{
+    font-size:13px;
   }
 
   .service-grid,
@@ -1200,150 +1353,302 @@ footer{
   .hero-scroll{
     display:none;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- PRELOADER -->
+
+<!-- =========================
+     PRELOADER
+========================= -->
 
 <div class="preloader" id="preloader">
+
   <div class="loader">
-    <img src="logo.png" alt="Furniture by Sharmaji">
-    <h3>Furniture by Sharmaji</h3>
-    <div class="loader-bar"><span></span></div>
+
+    <img
+      src="logo.png"
+      alt="Furniture by Sharmaji">
+
+    <h3>
+      Furniture by Sharmaji
+    </h3>
+
+    <div class="loader-bar">
+      <span></span>
+    </div>
+
   </div>
+
 </div>
 
 
-<!-- NAVIGATION -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <header class="nav" id="nav">
 
-  <a href="#home" class="logo magnetic">
-    <img src="logo.png" alt="Furniture by Sharmaji logo">
+  <a
+    href="#home"
+    class="logo magnetic">
+
+    <img
+      src="logo.png"
+      alt="Furniture by Sharmaji logo">
+
     <div class="logo-text">
-      <strong>Furniture by Sharmaji</strong>
-      <span>Furniture · Interiors</span>
+
+      <strong>
+        Furniture by Sharmaji
+      </strong>
+
+      <span>
+        Furniture · Interiors
+      </span>
+
     </div>
+
   </a>
 
-  <nav class="nav-links" id="navLinks">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#products">Furniture</a>
-    <a href="#projects">Interiors</a>
-    <a href="#craft">Craft</a>
-    <a href="#contact" class="nav-cta">Enquire</a>
+
+  <nav
+    class="nav-links"
+    id="navLinks">
+
+    <a href="#about">
+      About
+    </a>
+
+    <a href="#services">
+      Services
+    </a>
+
+    <a href="#products">
+      Furniture
+    </a>
+
+    <a href="#projects">
+      Interiors
+    </a>
+
+    <a href="#craft">
+      Craft
+    </a>
+
+    <a
+      href="#contact"
+      class="nav-cta">
+      Enquire
+    </a>
+
   </nav>
 
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+
+  <button
+    class="menu-btn"
+    id="menuBtn"
+    aria-label="Open menu">
+
     ☰
+
   </button>
 
 </header>
 
 
+
 <main>
 
-<!-- HERO -->
 
-<section class="hero" id="home">
+<!-- =========================
+     HERO
+========================= -->
 
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="hero.mp4" type="video/mp4">
+<section
+  class="hero"
+  id="home">
+
+
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline>
+
+    <source
+      src="hero.mp4"
+      type="video/mp4">
+
   </video>
+
 
   <div class="hero-overlay"></div>
 
-  <div class="hero-content reveal">
+
+  <div
+    class="hero-content reveal">
 
     <div class="kicker">
+
       Furniture makers · Interior design
+
     </div>
 
+
     <h1>
+
       Crafted for
-      <em>beautiful spaces.</em>
+
+      <em>
+        beautiful spaces.
+      </em>
+
     </h1>
 
+
     <p class="hero-copy">
-      Furniture by Sharmaji brings crafted furniture and interiors together —
-      creating pieces and spaces designed around the way you live, work and feel.
+
+      Furniture by Sharmaji brings crafted furniture
+      and interiors together — creating pieces and
+      spaces designed around the way you live,
+      work and feel.
+
     </p>
+
 
     <div class="hero-actions">
 
-      <a href="#products" class="btn btn-light magnetic">
+      <a
+        href="#products"
+        class="btn btn-light magnetic">
+
         Explore furniture ↗
+
       </a>
 
-      <a href="https://wa.me/919617621912"
-         target="_blank"
-         class="btn btn-dark magnetic">
+
+      <a
+        href="https://wa.me/919617621912"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-dark magnetic">
+
         WhatsApp us ↗
+
       </a>
 
     </div>
 
   </div>
 
+
   <div class="hero-scroll">
+
     Scroll to explore ↓
+
   </div>
 
 </section>
 
 
-<!-- ABOUT -->
 
-<section class="wood-section" id="about">
+<!-- =========================
+     ABOUT
+     BACKGROUND IMAGE
+========================= -->
 
-  <div class="container about-grid">
+<section
+  class="about-section"
+  id="about">
 
-    <div class="about-image reveal">
-      <img src="about.jpeg" alt="Furniture by Sharmaji">
-    </div>
+  <div class="about-content">
 
-    <div class="about-copy reveal delay-2">
+    <div class="about-inner reveal">
 
       <div class="kicker">
+
         01 / The studio
+
       </div>
 
+
       <h2 class="section-title">
+
         Furniture is where
         the interior begins.
+
       </h2>
 
-      <p>
-        Furniture by Sharmaji crafts furniture products and creates interiors
-        around them, bringing functionality, proportion, material and character
-        together in one considered vision.
-      </p>
 
-      <p>
-        From individual furniture pieces to complete interior projects, the
-        focus is on creating spaces that feel warm, practical and beautifully
-        put together.
-      </p>
+      <div class="about-copy">
+
+        <p>
+
+          Furniture by Sharmaji crafts furniture products
+          and creates interiors around them, bringing
+          functionality, proportion, material and character
+          together in one considered vision.
+
+        </p>
+
+
+        <p>
+
+          From individual furniture pieces to complete
+          interior projects, the focus is on creating spaces
+          that feel warm, practical and beautifully put together.
+
+        </p>
+
+      </div>
+
 
       <div class="about-stats">
 
         <div class="stat">
-          <strong>01</strong>
-          <span>Furniture craft</span>
+
+          <strong>
+            01
+          </strong>
+
+          <span>
+            Furniture craft
+          </span>
+
         </div>
 
-        <div class="stat">
-          <strong>02</strong>
-          <span>Interior design</span>
-        </div>
 
         <div class="stat">
-          <strong>03</strong>
-          <span>Made for spaces</span>
+
+          <strong>
+            02
+          </strong>
+
+          <span>
+            Interior design
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            03
+          </strong>
+
+          <span>
+            Made for spaces
+          </span>
+
         </div>
 
       </div>
@@ -1355,26 +1660,42 @@ footer{
 </section>
 
 
-<!-- SERVICES -->
 
-<section class="white-section" id="services">
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section
+  class="white-section"
+  id="services">
 
   <div class="container">
+
 
     <div class="section-head reveal">
 
       <div>
-        <div class="kicker">02 / What we do</div>
+
+        <div class="kicker">
+          02 / What we do
+        </div>
 
         <h2 class="section-title">
+
           From one piece<br>
           to the whole space.
+
         </h2>
+
       </div>
 
+
       <p>
-        Furniture and interiors are approached together, allowing every
-        element to feel connected to the space around it.
+
+        Furniture and interiors are approached together,
+        allowing every element to feel connected to the
+        space around it.
+
       </p>
 
     </div>
@@ -1382,41 +1703,86 @@ footer{
 
     <div class="service-grid">
 
+
       <article class="service reveal">
-        <div class="service-num">01</div>
-        <h3>Custom Furniture</h3>
+
+        <div class="service-num">
+          01
+        </div>
+
+        <h3>
+          Custom Furniture
+        </h3>
+
         <p>
-          Furniture pieces created around the dimensions, function and
-          personality of a space.
+
+          Furniture pieces created around the dimensions,
+          function and personality of a space.
+
         </p>
+
       </article>
+
 
       <article class="service reveal delay-1">
-        <div class="service-num">02</div>
-        <h3>Living Spaces</h3>
+
+        <div class="service-num">
+          02
+        </div>
+
+        <h3>
+          Living Spaces
+        </h3>
+
         <p>
-          Thoughtful furniture and interior arrangements for welcoming,
-          comfortable living spaces.
+
+          Thoughtful furniture and interior arrangements
+          for welcoming, comfortable living spaces.
+
         </p>
+
       </article>
+
 
       <article class="service reveal delay-2">
-        <div class="service-num">03</div>
-        <h3>Bedrooms & Storage</h3>
+
+        <div class="service-num">
+          03
+        </div>
+
+        <h3>
+          Bedrooms & Storage
+        </h3>
+
         <p>
-          Beds, wardrobes, storage and coordinated furniture designed as
-          part of one interior.
+
+          Beds, wardrobes, storage and coordinated
+          furniture designed as part of one interior.
+
         </p>
+
       </article>
 
+
       <article class="service reveal delay-3">
-        <div class="service-num">04</div>
-        <h3>Complete Interiors</h3>
+
+        <div class="service-num">
+          04
+        </div>
+
+        <h3>
+          Complete Interiors
+        </h3>
+
         <p>
-          Interior projects where furniture, finishes, layout and visual
-          character come together.
+
+          Interior projects where furniture, finishes,
+          layout and visual character come together.
+
         </p>
+
       </article>
+
 
     </div>
 
@@ -1425,26 +1791,41 @@ footer{
 </section>
 
 
-<!-- PRODUCTS -->
 
-<section class="wood-section" id="products">
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section
+  class="wood-section"
+  id="products">
 
   <div class="container">
+
 
     <div class="section-head reveal">
 
       <div>
-        <div class="kicker">03 / Crafted collection</div>
+
+        <div class="kicker">
+          03 / Crafted collection
+        </div>
 
         <h2 class="section-title">
+
           Crafted products.<br>
           Made with purpose.
+
         </h2>
+
       </div>
 
+
       <p>
-        Explore the furniture collection through the pieces crafted by
-        Furniture by Sharmaji.
+
+        Explore the furniture collection through the
+        pieces crafted by Furniture by Sharmaji.
+
       </p>
 
     </div>
@@ -1452,35 +1833,70 @@ footer{
 
     <div class="product-showcase">
 
+
       <div class="product-info reveal">
 
-        <span class="product-count" id="productCount">
+        <span
+          class="product-count"
+          id="productCount">
+
           Product 01 / 20
+
         </span>
 
+
         <h2 id="productTitle">
+
           Crafted Furniture
+
         </h2>
 
+
         <p id="productDescription">
-          A carefully crafted furniture piece designed to bring function,
-          comfort and character into an interior.
+
+          A carefully crafted furniture piece designed
+          to bring function, comfort and character
+          into an interior.
+
         </p>
 
+
         <div class="product-meta">
-          <span>Crafted furniture</span>
-          <span>Interior focused</span>
-          <span>Made to fit</span>
+
+          <span>
+            Crafted furniture
+          </span>
+
+          <span>
+            Interior focused
+          </span>
+
+          <span>
+            Made to fit
+          </span>
+
         </div>
+
 
         <div class="product-controls">
 
-          <button class="arrow" id="productPrev">
+          <button
+            class="arrow"
+            id="productPrev"
+            aria-label="Previous product">
+
             ←
+
           </button>
 
-          <button class="arrow" id="productNext">
+
+          <button
+            class="arrow"
+            id="productNext"
+            aria-label="Next product">
+
             →
+
           </button>
 
         </div>
@@ -1488,14 +1904,24 @@ footer{
       </div>
 
 
-      <div class="product-image" id="productImage">
+      <div
+        class="product-image"
+        id="productImage">
 
-        <span class="product-number" id="productNumber">
+
+        <span
+          class="product-number"
+          id="productNumber">
+
           01 / 20
+
         </span>
 
-        <img src="p1.jpeg" id="productImg"
-             alt="Crafted furniture product">
+
+        <img
+          src="p1.jpeg"
+          id="productImg"
+          alt="Crafted furniture product">
 
       </div>
 
@@ -1506,26 +1932,41 @@ footer{
 </section>
 
 
-<!-- COMPLETED INTERIORS -->
 
-<section class="white-section" id="projects">
+<!-- =========================
+     COMPLETED INTERIORS
+========================= -->
+
+<section
+  class="white-section"
+  id="projects">
 
   <div class="container">
+
 
     <div class="section-head reveal">
 
       <div>
-        <div class="kicker">04 / Completed interiors</div>
+
+        <div class="kicker">
+          04 / Completed interiors
+        </div>
 
         <h2 class="section-title">
+
           Spaces brought<br>
           to life.
+
         </h2>
+
       </div>
 
+
       <p>
-        A selection of completed interior work showing how crafted furniture
-        becomes part of a complete space.
+
+        A selection of completed interior work showing
+        how crafted furniture becomes part of a complete space.
+
       </p>
 
     </div>
@@ -1533,29 +1974,53 @@ footer{
 
     <div class="projects-layout">
 
+
       <div class="project-details reveal">
 
-        <span class="project-tag" id="projectTag">
+        <span
+          class="project-tag"
+          id="projectTag">
+
           Completed interior · 01
+
         </span>
 
+
         <h2 id="projectTitle">
+
           Interior Project
+
         </h2>
 
+
         <p id="projectDescription">
-          A finished interior where furniture, proportions, materials and
-          atmosphere come together to create a cohesive space.
+
+          A finished interior where furniture,
+          proportions, materials and atmosphere
+          come together to create a cohesive space.
+
         </p>
+
 
         <div class="project-controls">
 
-          <button class="arrow" id="projectPrev">
+          <button
+            class="arrow"
+            id="projectPrev"
+            aria-label="Previous project">
+
             ←
+
           </button>
 
-          <button class="arrow" id="projectNext">
+
+          <button
+            class="arrow"
+            id="projectNext"
+            aria-label="Next project">
+
             →
+
           </button>
 
         </div>
@@ -1563,11 +2028,14 @@ footer{
       </div>
 
 
-      <div class="project-frame" id="projectFrame">
+      <div
+        class="project-frame"
+        id="projectFrame">
 
-        <img src="c1.jpeg"
-             id="projectImg"
-             alt="Completed interior project">
+        <img
+          src="c1.jpeg"
+          id="projectImg"
+          alt="Completed interior project">
 
       </div>
 
@@ -1578,15 +2046,26 @@ footer{
 </section>
 
 
-<!-- CRAFT -->
 
-<section class="cream-section" id="craft">
+<!-- =========================
+     CRAFT
+========================= -->
+
+<section
+  class="cream-section"
+  id="craft">
 
   <div class="container craft-grid">
 
+
     <div class="craft-image reveal">
-      <img src="p8.jpeg" alt="Furniture craftsmanship">
+
+      <img
+        src="p8.jpeg"
+        alt="Furniture craftsmanship">
+
     </div>
+
 
     <div class="craft-copy reveal delay-2">
 
@@ -1594,38 +2073,71 @@ footer{
         05 / The craft
       </div>
 
+
       <h2 class="section-title">
+
         Details make<br>
         the difference.
+
       </h2>
 
+
       <p>
-        Good furniture should not only look right. It should feel right within
-        the space — in its proportions, usability, finish and relationship
+
+        Good furniture should not only look right.
+        It should feel right within the space — in its
+        proportions, usability, finish and relationship
         with everything around it.
+
       </p>
+
 
       <div class="detail-list">
 
+
         <div class="detail">
+
           <b>01</b>
-          <span>Furniture considered around the interior.</span>
+
+          <span>
+            Furniture considered around the interior.
+          </span>
+
         </div>
 
+
         <div class="detail">
+
           <b>02</b>
-          <span>Material and finish selected for the intended character.</span>
+
+          <span>
+            Material and finish selected for the intended character.
+          </span>
+
         </div>
 
+
         <div class="detail">
+
           <b>03</b>
-          <span>Practical design balanced with visual appeal.</span>
+
+          <span>
+            Practical design balanced with visual appeal.
+          </span>
+
         </div>
 
+
         <div class="detail">
+
           <b>04</b>
-          <span>Custom thinking for spaces that feel personal.</span>
+
+          <span>
+            Custom thinking for spaces that feel personal.
+          </span>
+
         </div>
+
 
       </div>
 
@@ -1636,26 +2148,41 @@ footer{
 </section>
 
 
-<!-- PROCESS -->
 
-<section class="white-section">
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section
+  class="white-section">
 
   <div class="container">
+
 
     <div class="section-head reveal">
 
       <div>
-        <div class="kicker">06 / Our approach</div>
+
+        <div class="kicker">
+          06 / Our approach
+        </div>
 
         <h2 class="section-title">
+
           From thought<br>
           to finished space.
+
         </h2>
+
       </div>
 
+
       <p>
-        A clear process keeps the design direction connected from the first
-        conversation through crafting and completion.
+
+        A clear process keeps the design direction
+        connected from the first conversation through
+        crafting and completion.
+
       </p>
 
     </div>
@@ -1663,40 +2190,78 @@ footer{
 
     <div class="process-grid">
 
+
       <div class="process-item reveal">
-        <div class="process-number">01</div>
-        <h3>Understand</h3>
+
+        <div class="process-number">
+          01
+        </div>
+
+        <h3>
+          Understand
+        </h3>
+
         <p>
-          Understand the space, requirements, dimensions and desired look.
+          Understand the space, requirements,
+          dimensions and desired look.
         </p>
+
       </div>
+
 
       <div class="process-item reveal delay-1">
-        <div class="process-number">02</div>
-        <h3>Design</h3>
+
+        <div class="process-number">
+          02
+        </div>
+
+        <h3>
+          Design
+        </h3>
+
         <p>
-          Develop the furniture or interior direction around function and
-          visual character.
+          Develop the furniture or interior direction
+          around function and visual character.
         </p>
+
       </div>
+
 
       <div class="process-item reveal delay-2">
-        <div class="process-number">03</div>
-        <h3>Craft</h3>
+
+        <div class="process-number">
+          03
+        </div>
+
+        <h3>
+          Craft
+        </h3>
+
         <p>
-          Turn the approved direction into carefully crafted furniture and
-          interior elements.
+          Turn the approved direction into carefully
+          crafted furniture and interior elements.
         </p>
+
       </div>
 
+
       <div class="process-item reveal delay-3">
-        <div class="process-number">04</div>
-        <h3>Complete</h3>
+
+        <div class="process-number">
+          04
+        </div>
+
+        <h3>
+          Complete
+        </h3>
+
         <p>
-          Bring everything together so the finished furniture and interior
-          work as one space.
+          Bring everything together so the finished
+          furniture and interior work as one space.
         </p>
+
       </div>
+
 
     </div>
 
@@ -1705,26 +2270,40 @@ footer{
 </section>
 
 
-<!-- WHY CHOOSE -->
 
-<section class="wood-section">
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
+
+<section
+  class="wood-section">
 
   <div class="container">
+
 
     <div class="section-head reveal">
 
       <div>
-        <div class="kicker">07 / Why Sharmaji</div>
+
+        <div class="kicker">
+          07 / Why Sharmaji
+        </div>
 
         <h2 class="section-title">
+
           Made around<br>
           your space.
+
         </h2>
+
       </div>
 
+
       <p>
-        The difference is in treating furniture and interiors as connected
-        parts of the same design story.
+
+        The difference is in treating furniture and
+        interiors as connected parts of the same design story.
+
       </p>
 
     </div>
@@ -1732,41 +2311,79 @@ footer{
 
     <div class="why-grid">
 
+
       <div class="why-card reveal">
-        <span>01</span>
-        <h3>Furniture first</h3>
+
+        <span>
+          01
+        </span>
+
+        <h3>
+          Furniture first
+        </h3>
+
         <p>
-          Crafted furniture forms an important part of the interior rather
-          than being treated as an afterthought.
+          Crafted furniture forms an important part
+          of the interior rather than being treated
+          as an afterthought.
         </p>
+
       </div>
+
 
       <div class="why-card reveal delay-1">
-        <span>02</span>
-        <h3>Interior thinking</h3>
+
+        <span>
+          02
+        </span>
+
+        <h3>
+          Interior thinking
+        </h3>
+
         <p>
-          Every piece can be considered in relation to the room, layout,
-          atmosphere and everyday use.
+          Every piece can be considered in relation
+          to the room, layout, atmosphere and everyday use.
         </p>
+
       </div>
+
 
       <div class="why-card reveal delay-2">
-        <span>03</span>
-        <h3>Personal approach</h3>
+
+        <span>
+          03
+        </span>
+
+        <h3>
+          Personal approach
+        </h3>
+
         <p>
-          Custom furniture gives each project the flexibility to feel
-          individual rather than generic.
+          Custom furniture gives each project the
+          flexibility to feel individual rather than generic.
         </p>
+
       </div>
 
+
       <div class="why-card reveal delay-3">
-        <span>04</span>
-        <h3>Complete vision</h3>
+
+        <span>
+          04
+        </span>
+
+        <h3>
+          Complete vision
+        </h3>
+
         <p>
-          Furniture and interiors can work together to create a more cohesive
-          finished space.
+          Furniture and interiors can work together
+          to create a more cohesive finished space.
         </p>
+
       </div>
+
 
     </div>
 
@@ -1775,30 +2392,51 @@ footer{
 </section>
 
 
-<!-- CTA -->
 
-<section class="cta">
+<!-- =========================
+     CTA
+========================= -->
 
-  <div class="container cta-inner reveal">
+<section
+  class="cta">
 
-    <div class="kicker" style="justify-content:center">
+  <div
+    class="container cta-inner reveal">
+
+    <div
+      class="kicker"
+      style="justify-content:center">
+
       08 / Start a project
+
     </div>
 
+
     <h2>
+
       Let's create a space
       that feels like yours.
+
     </h2>
 
+
     <p>
-      Have a furniture requirement or an interior project in mind?
-      Start a conversation with Furniture by Sharmaji.
+
+      Have a furniture requirement or an interior
+      project in mind? Start a conversation with
+      Furniture by Sharmaji.
+
     </p>
 
-    <a href="https://wa.me/919617621912?text=Hi%20Furniture%20by%20Sharmaji%2C%20I%27d%20like%20to%20discuss%20a%20furniture%20or%20interior%20project."
-       target="_blank"
-       class="btn btn-dark magnetic">
+
+    <a
+      href="https://wa.me/919617621912?text=Hi%20Furniture%20by%20Sharmaji%2C%20I%27d%20like%20to%20discuss%20a%20furniture%20or%20interior%20project."
+      target="_blank"
+      rel="noopener"
+      class="btn btn-dark magnetic">
+
       Start on WhatsApp ↗
+
     </a>
 
   </div>
@@ -1806,11 +2444,17 @@ footer{
 </section>
 
 
-<!-- CONTACT -->
 
-<section class="white-section" id="contact">
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+  class="white-section"
+  id="contact">
 
   <div class="container contact-grid">
+
 
     <div class="contact-copy reveal">
 
@@ -1818,47 +2462,97 @@ footer{
         09 / Contact
       </div>
 
+
       <h2>
+
         Tell us about
         your space.
+
       </h2>
 
+
       <p>
-        Whether you are looking for a crafted furniture piece or planning
-        an interior, get in touch and tell us what you have in mind.
+
+        Whether you are looking for a crafted furniture
+        piece or planning an interior, get in touch and
+        tell us what you have in mind.
+
       </p>
+
 
       <div class="contact-list">
 
-        <a href="tel:+919617621912" class="contact-row">
-          <small>Phone</small>
-          <span>+91 96176 21912 ↗</span>
+
+        <a
+          href="tel:+919617621912"
+          class="contact-row">
+
+          <small>
+            Phone
+          </small>
+
+          <span>
+            +91 96176 21912 ↗
+          </span>
+
         </a>
 
-        <a href="https://wa.me/919617621912"
-           target="_blank"
-           class="contact-row">
-          <small>WhatsApp</small>
-          <span>Message us ↗</span>
+
+        <a
+          href="https://wa.me/919617621912"
+          target="_blank"
+          rel="noopener"
+          class="contact-row">
+
+          <small>
+            WhatsApp
+          </small>
+
+          <span>
+            Message us ↗
+          </span>
+
         </a>
 
-        <a href="https://instagram.com/furniture_by__sharmaji"
-           target="_blank"
-           class="contact-row">
-          <small>Instagram</small>
-          <span>@furniture_by__sharmaji ↗</span>
+
+        <a
+          href="https://instagram.com/furniture_by__sharmaji"
+          target="_blank"
+          rel="noopener"
+          class="contact-row">
+
+          <small>
+            Instagram
+          </small>
+
+          <span>
+            @furniture_by__sharmaji ↗
+          </span>
+
         </a>
 
-        <a href="https://maps.app.goo.gl/H3TgejNgsjMEyaWP6?g_st=aw"
-           target="_blank"
-           class="contact-row">
-          <small>Location</small>
-          <span>View on Google Maps ↗</span>
+
+        <a
+          href="https://maps.app.goo.gl/H3TgejNgsjMEyaWP6?g_st=aw"
+          target="_blank"
+          rel="noopener"
+          class="contact-row">
+
+          <small>
+            Location
+          </small>
+
+          <span>
+            View on Google Maps ↗
+          </span>
+
         </a>
+
 
       </div>
 
     </div>
+
 
 
     <div class="form-box reveal delay-2">
@@ -1867,7 +2561,11 @@ footer{
         Start an enquiry
       </h3>
 
-      <form class="form" id="contactForm">
+
+      <form
+        class="form"
+        id="contactForm">
+
 
         <input
           type="text"
@@ -1875,26 +2573,33 @@ footer{
           placeholder="Your name"
           required>
 
+
         <input
           type="tel"
           name="phone"
           placeholder="Phone number"
           required>
 
+
         <input
           type="text"
           name="requirement"
           placeholder="Furniture / interior requirement">
 
+
         <textarea
           name="message"
           placeholder="Tell us about your project"></textarea>
 
+
         <button
           type="submit"
           class="btn btn-dark magnetic">
+
           Send via WhatsApp ↗
+
         </button>
+
 
       </form>
 
@@ -1907,123 +2612,206 @@ footer{
 </main>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
+
   <div class="footer-top">
+
 
     <div>
 
-      <a href="#home" class="footer-brand">
-        <img src="logo.png" alt="Furniture by Sharmaji">
+      <a
+        href="#home"
+        class="footer-brand">
+
+        <img
+          src="logo.png"
+          alt="Furniture by Sharmaji">
+
+
         <div>
-          <h3>Furniture by Sharmaji</h3>
-          <p>Furniture · Interiors</p>
+
+          <h3>
+            Furniture by Sharmaji
+          </h3>
+
+          <p>
+            Furniture · Interiors
+          </p>
+
         </div>
+
       </a>
 
-      <p class="footer-address" style="margin-top:25px">
+
+      <p
+        class="footer-address"
+        style="margin-top:25px">
+
         NEELKANTH RESTAURANT, Mall Godam Road,
         Railway Station Rd, Dashrath Nagar,
         Nai Abaadi, Mandsaur,
         Madhya Pradesh 458001
+
       </p>
 
     </div>
 
 
+
     <div class="footer-links">
+
 
       <div class="footer-column">
 
-        <h4>Explore</h4>
+        <h4>
+          Explore
+        </h4>
 
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#products">Furniture</a>
-        <a href="#projects">Interiors</a>
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#services">
+          Services
+        </a>
+
+        <a href="#products">
+          Furniture
+        </a>
+
+        <a href="#projects">
+          Interiors
+        </a>
 
       </div>
 
 
+
       <div class="footer-column">
 
-        <h4>Connect</h4>
+        <h4>
+          Connect
+        </h4>
 
         <a href="tel:+919617621912">
           +91 96176 21912
         </a>
 
-        <a href="https://wa.me/919617621912"
-           target="_blank">
+        <a
+          href="https://wa.me/919617621912"
+          target="_blank">
+
           WhatsApp
+
         </a>
 
-        <a href="https://instagram.com/furniture_by__sharmaji"
-           target="_blank">
+        <a
+          href="https://instagram.com/furniture_by__sharmaji"
+          target="_blank">
+
           Instagram
+
         </a>
 
       </div>
 
 
+
       <div class="footer-column">
 
-        <h4>Follow</h4>
+        <h4>
+          Follow
+        </h4>
+
 
         <div class="socials">
+
 
           <a
             class="social"
             href="https://instagram.com/furniture_by__sharmaji"
             target="_blank"
+            rel="noopener"
             aria-label="Instagram">
 
-            <svg viewBox="0 0 24 24"
-                 width="17"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.7">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r=".7"
-                      fill="currentColor"/>
+            <svg
+              viewBox="0 0 24 24"
+              width="17"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7">
+
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"/>
+
+              <circle
+                cx="12"
+                cy="12"
+                r="4"/>
+
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r=".7"
+                fill="currentColor"/>
+
             </svg>
 
           </a>
+
 
 
           <a
             class="social"
             href="https://wa.me/919617621912"
             target="_blank"
+            rel="noopener"
             aria-label="WhatsApp">
 
-            <svg viewBox="0 0 24 24"
-                 width="17"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.7">
-              <path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/>
-              <path d="M8.7 8.2c.2-.4.5-.4.8-.4l.7 1.8c.1.2 0 .4-.1.6l-.5.5c.5 1 1.3 1.8 2.4 2.3l.5-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.3.6-.2.8-.8 1.3-1.6 1.3"/>
+            <svg
+              viewBox="0 0 24 24"
+              width="17"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7">
+
+              <path
+                d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/>
+
+              <path
+                d="M8.7 8.2c.2-.4.5-.4.8-.4l.7 1.8c.1.2 0 .4-.1.6l-.5.5c.5 1 1.3 1.8 2.4 2.3l.5-.6c.2-.2.4-.2.7-.1l1.7.8"/>
+
             </svg>
 
           </a>
 
+
         </div>
 
       </div>
+
 
     </div>
 
   </div>
 
 
+
   <div class="footer-bottom">
 
     <span>
-      © <span id="year"></span> Furniture by Sharmaji
+      © <span id="year"></span>
+      Furniture by Sharmaji
     </span>
 
     <span>
@@ -2035,76 +2823,112 @@ footer{
 </footer>
 
 
-<!-- FLOATING ACTIONS -->
+
+<!-- =========================
+     FLOATING BUTTONS
+========================= -->
 
 <div class="floating">
+
 
   <a
     href="tel:+919617621912"
     class="float-btn magnetic"
     aria-label="Call Furniture by Sharmaji">
 
-    <svg viewBox="0 0 24 24"
-         fill="none"
-         stroke="currentColor"
-         stroke-width="1.8">
-      <path d="M6.6 3.5 9 3l2 4.8-1.9 1.4a14.2 14.2 0 0 0 5.7 5.7l1.4-1.9 4.8 2-.5 2.4c-.3 1.3-1.5 2.2-2.8 2.1C10.8 18.7 5.3 13.2 4.5 6.3 4.3 5 5.3 3.8 6.6 3.5Z"/>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8">
+
+      <path
+        d="M6.6 3.5 9 3l2 4.8-1.9 1.4a14.2 14.2 0 0 0 5.7 5.7l1.4-1.9 4.8 2-.5 2.4c-.3 1.3-1.5 2.2-2.8 2.1C10.8 18.7 5.3 13.2 4.5 6.3 4.3 5 5.3 3.8 6.6 3.5Z"/>
+
     </svg>
 
   </a>
+
 
 
   <a
     href="https://wa.me/919617621912"
     target="_blank"
+    rel="noopener"
     class="float-btn magnetic"
     aria-label="WhatsApp Furniture by Sharmaji">
 
-    <svg viewBox="0 0 24 24"
-         fill="none"
-         stroke="currentColor"
-         stroke-width="1.8">
-      <path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/>
-      <path d="M8.7 8.2c.2-.4.5-.4.8-.4l.7 1.8c.1.2 0 .4-.1.6l-.5.5c.5 1 1.3 1.8 2.4 2.3l.5-.6c.2-.2.4-.2.7-.1l1.7.8"/>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8">
+
+      <path
+        d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/>
+
+      <path
+        d="M8.7 8.2c.2-.4.5-.4.8-.4l.7 1.8c.1.2 0 .4-.1.6l-.5.5c.5 1 1.3 1.8 2.4 2.3l.5-.6c.2-.2.4-.2.7-.1l1.7.8"/>
+
     </svg>
 
   </a>
 
+
 </div>
+
 
 
 <script>
 
-/* PRELOADER */
+
+/* =========================
+   PRELOADER
+========================= */
 
 window.addEventListener("load",()=>{
+
   setTimeout(()=>{
+
     document
       .getElementById("preloader")
       .classList.add("hide");
+
   },650);
+
 });
 
 
-/* YEAR */
+/* =========================
+   YEAR
+========================= */
 
-document.getElementById("year").textContent =
+document
+  .getElementById("year")
+  .textContent =
   new Date().getFullYear();
 
 
-/* NAV SCROLL */
+/* =========================
+   NAV SCROLL
+========================= */
 
-const nav = document.getElementById("nav");
+const nav =
+  document.getElementById("nav");
 
 window.addEventListener("scroll",()=>{
+
   nav.classList.toggle(
     "scrolled",
     window.scrollY > 40
   );
+
 });
 
 
-/* MOBILE MENU */
+/* =========================
+   MOBILE MENU
+========================= */
 
 const menuBtn =
   document.getElementById("menuBtn");
@@ -2112,10 +2936,14 @@ const menuBtn =
 const navLinks =
   document.getElementById("navLinks");
 
+
 menuBtn.addEventListener("click",()=>{
 
   navLinks.classList.toggle("open");
-  document.body.classList.toggle("menu-open");
+
+  document.body.classList.toggle(
+    "menu-open"
+  );
 
   menuBtn.textContent =
     navLinks.classList.contains("open")
@@ -2125,155 +2953,185 @@ menuBtn.addEventListener("click",()=>{
 });
 
 
-document.querySelectorAll(".nav-links a")
-.forEach(link=>{
+document
+  .querySelectorAll(".nav-links a")
+  .forEach(link=>{
 
-  link.addEventListener("click",()=>{
+    link.addEventListener("click",()=>{
 
-    navLinks.classList.remove("open");
-    document.body.classList.remove("menu-open");
+      navLinks.classList.remove("open");
 
-    menuBtn.textContent="☰";
+      document.body.classList.remove(
+        "menu-open"
+      );
+
+      menuBtn.textContent="☰";
+
+    });
 
   });
 
-});
 
-
-/* SCROLL REVEAL */
+/* =========================
+   SCROLL REVEAL
+========================= */
 
 const revealObserver =
-new IntersectionObserver(
-  entries=>{
+  new IntersectionObserver(
+    entries=>{
 
-    entries.forEach(entry=>{
+      entries.forEach(entry=>{
 
-      if(entry.isIntersecting){
+        if(entry.isIntersecting){
 
-        entry.target.classList.add("visible");
-
-        revealObserver.unobserve(
           entry.target
-        );
+            .classList
+            .add("visible");
 
-      }
+          revealObserver.unobserve(
+            entry.target
+          );
 
-    });
+        }
 
-  },
-  {
-    threshold:.12
-  }
-);
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
 
 
 document
-.querySelectorAll(".reveal")
-.forEach(el=>{
-  revealObserver.observe(el);
-});
+  .querySelectorAll(".reveal")
+  .forEach(el=>{
+
+    revealObserver.observe(el);
+
+  });
 
 
-/* MAGNETIC EFFECT */
+/* =========================
+   MAGNETIC EFFECT
+========================= */
 
 const magneticElements =
-document.querySelectorAll(".magnetic");
+  document.querySelectorAll(".magnetic");
 
-if(window.matchMedia("(pointer:fine)").matches){
+
+if(
+  window.matchMedia("(pointer:fine)").matches
+){
 
   magneticElements.forEach(el=>{
 
-    el.addEventListener("mousemove",e=>{
+    el.addEventListener(
+      "mousemove",
+      e=>{
 
-      const rect =
-        el.getBoundingClientRect();
+        const rect =
+          el.getBoundingClientRect();
 
-      const x =
-        e.clientX -
-        rect.left -
-        rect.width / 2;
+        const x =
+          e.clientX -
+          rect.left -
+          rect.width / 2;
 
-      const y =
-        e.clientY -
-        rect.top -
-        rect.height / 2;
+        const y =
+          e.clientY -
+          rect.top -
+          rect.height / 2;
 
-      el.style.transform =
-        `translate(${x * .12}px,${y * .12}px)`;
+        el.style.transform =
+          `translate(${x*.12}px,${y*.12}px)`;
 
-    });
+      }
+    );
 
 
-    el.addEventListener("mouseleave",()=>{
+    el.addEventListener(
+      "mouseleave",
+      ()=>{
 
-      el.style.transform="";
+        el.style.transform="";
 
-    });
+      }
+    );
 
   });
 
 }
 
 
-/* PRODUCT SLIDER */
+/* =========================
+   PRODUCTS SLIDER
+========================= */
 
 const products =
 Array.from(
   {length:20},
   (_,i)=>({
+
     image:`p${i+1}.jpeg`,
+
     title:
-      [
-        "Crafted Furniture",
-        "Statement Furniture",
-        "Living Collection",
-        "Contemporary Seating",
-        "Bedroom Furniture",
-        "Custom Storage",
-        "Wardrobe Collection",
-        "Dining Furniture",
-        "Designed Comfort",
-        "Interior Furniture",
-        "Custom Piece",
-        "Modern Furniture",
-        "Signature Furniture",
-        "Functional Form",
-        "Crafted Detail",
-        "Residential Furniture",
-        "Furniture Collection",
-        "Made for Interiors",
-        "Custom Design",
-        "Sharmaji Collection"
-      ][i]
+    [
+      "Crafted Furniture",
+      "Statement Furniture",
+      "Living Collection",
+      "Contemporary Seating",
+      "Bedroom Furniture",
+      "Custom Storage",
+      "Wardrobe Collection",
+      "Dining Furniture",
+      "Designed Comfort",
+      "Interior Furniture",
+      "Custom Piece",
+      "Modern Furniture",
+      "Signature Furniture",
+      "Functional Form",
+      "Crafted Detail",
+      "Residential Furniture",
+      "Furniture Collection",
+      "Made for Interiors",
+      "Custom Design",
+      "Sharmaji Collection"
+    ][i]
+
   })
 );
 
+
 let productIndex=0;
 
+
 const productImg =
-document.getElementById("productImg");
+  document.getElementById("productImg");
 
 const productImage =
-document.getElementById("productImage");
+  document.getElementById("productImage");
 
 const productTitle =
-document.getElementById("productTitle");
+  document.getElementById("productTitle");
 
 const productCount =
-document.getElementById("productCount");
+  document.getElementById("productCount");
 
 const productNumber =
-document.getElementById("productNumber");
+  document.getElementById("productNumber");
 
 
 function updateProduct(){
 
   productImage.classList.add("changing");
 
+
   setTimeout(()=>{
 
     const item =
       products[productIndex];
+
 
     productImg.src =
       item.image;
@@ -2281,18 +3139,23 @@ function updateProduct(){
     productImg.alt =
       item.title;
 
+
     productTitle.textContent =
       item.title;
 
+
     const number =
       String(productIndex+1)
-      .padStart(2,"0");
+        .padStart(2,"0");
+
 
     productCount.textContent =
       `Product ${number} / 20`;
 
+
     productNumber.textContent =
       `${number} / 20`;
+
 
     productImage.classList.remove(
       "changing"
@@ -2304,65 +3167,77 @@ function updateProduct(){
 
 
 document
-.getElementById("productNext")
-.addEventListener("click",()=>{
+  .getElementById("productNext")
+  .addEventListener("click",()=>{
 
-  productIndex =
-    (productIndex+1) %
-    products.length;
+    productIndex =
+      (productIndex+1) %
+      products.length;
 
-  updateProduct();
+    updateProduct();
 
-});
+  });
 
 
 document
-.getElementById("productPrev")
-.addEventListener("click",()=>{
+  .getElementById("productPrev")
+  .addEventListener("click",()=>{
 
-  productIndex =
-    (productIndex-1+products.length) %
-    products.length;
+    productIndex =
+      (productIndex-1+products.length) %
+      products.length;
 
-  updateProduct();
+    updateProduct();
 
-});
+  });
 
 
-/* PROJECT SLIDER */
+/* =========================
+   PROJECT SLIDER
+========================= */
 
 const projects =
 Array.from(
   {length:15},
   (_,i)=>({
+
     image:`c${i+1}.jpeg`,
-    title:`Interior Project ${String(i+1).padStart(2,"0")}`
+
+    title:
+      `Interior Project ${
+        String(i+1).padStart(2,"0")
+      }`
+
   })
 );
 
+
 let projectIndex=0;
 
+
 const projectFrame =
-document.getElementById("projectFrame");
+  document.getElementById("projectFrame");
 
 const projectImg =
-document.getElementById("projectImg");
+  document.getElementById("projectImg");
 
 const projectTitle =
-document.getElementById("projectTitle");
+  document.getElementById("projectTitle");
 
 const projectTag =
-document.getElementById("projectTag");
+  document.getElementById("projectTag");
 
 
 function updateProject(){
 
   projectFrame.classList.add("changing");
 
+
   setTimeout(()=>{
 
     const item =
       projects[projectIndex];
+
 
     projectImg.src =
       item.image;
@@ -2370,11 +3245,16 @@ function updateProject(){
     projectImg.alt =
       item.title;
 
+
     projectTitle.textContent =
       item.title;
 
+
     projectTag.textContent =
-      `Completed interior · ${String(projectIndex+1).padStart(2,"0")}`;
+      `Completed interior · ${
+        String(projectIndex+1).padStart(2,"0")
+      }`;
+
 
     projectFrame.classList.remove(
       "changing"
@@ -2386,57 +3266,62 @@ function updateProject(){
 
 
 document
-.getElementById("projectNext")
-.addEventListener("click",()=>{
+  .getElementById("projectNext")
+  .addEventListener("click",()=>{
 
-  projectIndex =
-    (projectIndex+1) %
-    projects.length;
+    projectIndex =
+      (projectIndex+1) %
+      projects.length;
 
-  updateProject();
+    updateProject();
 
-});
+  });
 
 
 document
-.getElementById("projectPrev")
-.addEventListener("click",()=>{
+  .getElementById("projectPrev")
+  .addEventListener("click",()=>{
 
-  projectIndex =
-    (projectIndex-1+projects.length) %
-    projects.length;
+    projectIndex =
+      (projectIndex-1+projects.length) %
+      projects.length;
 
-  updateProject();
+    updateProject();
 
-});
+  });
 
 
-/* WHATSAPP FORM */
+/* =========================
+   WHATSAPP FORM
+========================= */
 
 document
-.getElementById("contactForm")
-.addEventListener("submit",e=>{
+  .getElementById("contactForm")
+  .addEventListener("submit",e=>{
 
-  e.preventDefault();
+    e.preventDefault();
 
-  const data =
-    new FormData(e.currentTarget);
 
-  const name =
-    data.get("name");
+    const data =
+      new FormData(e.currentTarget);
 
-  const phone =
-    data.get("phone");
 
-  const requirement =
-    data.get("requirement") ||
-    "Not specified";
+    const name =
+      data.get("name");
 
-  const message =
-    data.get("message") ||
-    "No additional details";
+    const phone =
+      data.get("phone");
 
-  const text =
+    const requirement =
+      data.get("requirement") ||
+      "Not specified";
+
+    const message =
+      data.get("message") ||
+      "No additional details";
+
+
+    const text =
 `Hi Furniture by Sharmaji,
 
 I'd like to discuss a furniture/interior project.
@@ -2448,34 +3333,50 @@ Requirement: ${requirement}
 Project details:
 ${message}`;
 
-  window.open(
-    "https://wa.me/919617621912?text="+
-    encodeURIComponent(text),
-    "_blank"
-  );
 
-});
+    window.open(
+      "https://wa.me/919617621912?text="+
+      encodeURIComponent(text),
+      "_blank"
+    );
+
+  });
 
 
-/* KEYBOARD SLIDER SUPPORT */
+/* =========================
+   KEYBOARD PRODUCT CONTROL
+========================= */
 
-document.addEventListener("keydown",e=>{
+document.addEventListener(
+  "keydown",
+  e=>{
 
-  if(e.key==="ArrowRight"){
-    productIndex =
-      (productIndex+1)%products.length;
-    updateProduct();
+    if(e.key==="ArrowRight"){
+
+      productIndex =
+        (productIndex+1) %
+        products.length;
+
+      updateProduct();
+
+    }
+
+
+    if(e.key==="ArrowLeft"){
+
+      productIndex =
+        (productIndex-1+products.length) %
+        products.length;
+
+      updateProduct();
+
+    }
+
   }
-
-  if(e.key==="ArrowLeft"){
-    productIndex =
-      (productIndex-1+products.length)%products.length;
-    updateProduct();
-  }
-
-});
+);
 
 </script>
 
 </body>
 </html>
+```
