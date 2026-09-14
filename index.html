@@ -194,7 +194,7 @@ button{
 .nav-links{
   display:flex;
   align-items:center;
-  gap:30px;
+  gap:24px;
 }
 
 .nav-links a{
@@ -381,7 +381,7 @@ section{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:1;
+  opacity:.95;
 }
 
 .hero-overlay{
@@ -390,9 +390,9 @@ section{
   background:
     linear-gradient(
       90deg,
-      rgba(24,14,8,.58) 0%,
-      rgba(24,14,8,.28) 48%,
-      rgba(24,14,8,.08) 100%
+      rgba(24,14,8,.65) 0%,
+      rgba(24,14,8,.4) 45%,
+      rgba(24,14,8,.1) 100%
     );
 }
 
@@ -1339,29 +1339,6 @@ footer{
 
 }
 
-/* TEAM / REVIEWS / FAQ / MAP */
-
-.team-section,.reviews-section,.faq-section,.map-section{position:relative;background:#f5f1ea;color:#24170f}
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
-.team-media{overflow:hidden;aspect-ratio:4/5}.team-media img{width:100%;height:100%;object-fit:cover;display:block}
-.team-copy h2,.faq-intro h2,.map-copy h2,.reviews-head h2{font-family:var(--serif);font-size:clamp(42px,5vw,76px);line-height:.98;font-weight:500;margin:12px 0 24px;letter-spacing:-.035em}
-.team-copy>p:not(.eyebrow){max-width:620px;line-height:1.8;color:#5d5048}
-.team-points{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:34px;padding-top:24px;border-top:1px solid rgba(36,23,15,.16);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
-.reviews-head{display:grid;grid-template-columns:1.3fr .7fr;gap:6vw;align-items:end;margin-bottom:45px}.reviews-note{line-height:1.8;color:#6b5d54;margin:0 0 8px}
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.review-card{min-height:250px;padding:34px;background:#fff;border:1px solid rgba(36,23,15,.1);display:flex;flex-direction:column;justify-content:space-between}
-.review-mark{font-family:var(--serif);font-size:64px;line-height:.7}.review-card p{font-family:var(--serif);font-size:25px;line-height:1.25;margin:20px 0}.review-source{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#7c6e64}
-.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:8vw;align-items:start}.faq-intro>p:not(.eyebrow){color:#65574e;line-height:1.8;max-width:480px;margin-bottom:30px}
-.faq-list{border-top:1px solid rgba(36,23,15,.18)}.faq-list details{border-bottom:1px solid rgba(36,23,15,.18)}
-.faq-list summary{list-style:none;cursor:pointer;padding:25px 42px 25px 0;font-family:var(--serif);font-size:23px;position:relative}.faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary:after{content:"+";position:absolute;right:0;top:22px;font-family:Arial,sans-serif;font-size:24px;transition:transform .25s ease}.faq-list details[open] summary:after{transform:rotate(45deg)}
-.faq-list details p{color:#6a5b51;line-height:1.75;max-width:720px;padding:0 0 25px;margin:0}
-.map-card{display:grid;grid-template-columns:.9fr 1.1fr;min-height:480px;background:#e9e1d7}.map-copy{padding:clamp(35px,6vw,80px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-.map-copy>p:not(.eyebrow){max-width:520px;color:#65574e;line-height:1.8;margin-bottom:30px}
-.map-visual{min-height:480px;background:#d9d0c4;display:flex;align-items:center;justify-content:center;padding:30px}.map-placeholder{width:min(420px,90%);min-height:270px;background:rgba(255,255,255,.86);border:1px solid rgba(36,23,15,.12);box-shadow:0 20px 60px rgba(36,23,15,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px}
-.map-pin{font-size:52px;line-height:1;font-family:var(--serif)}.map-placeholder strong{font-family:var(--serif);font-size:28px;font-weight:500}.map-placeholder span:not(.map-pin){color:#74665c;font-size:14px}.map-placeholder a{margin-top:10px;color:#24170f;text-decoration:underline;text-underline-offset:4px;font-size:13px}
-@media(max-width:950px){.team-grid,.reviews-head,.faq-grid,.map-card{grid-template-columns:1fr}.team-media{aspect-ratio:16/10}.review-grid{grid-template-columns:1fr}.map-visual{min-height:360px}}
-@media(max-width:600px){.team-points{grid-template-columns:1fr}.faq-list summary{font-size:20px}.map-visual{min-height:300px;padding:18px}.map-placeholder{min-height:230px}}
-
 </style>
 </head>
 
@@ -1444,10 +1421,20 @@ footer{
       Interiors
     </a>
 
-    <a href="#team">Team</a>
-<a href="#faq">FAQ</a>
-<a href="#craft">
-      Craft
+    <a href="#team">
+      Team
+    </a>
+
+    <a href="#faqs">
+      FAQs
+    </a>
+
+    <a href="#reviews">
+      Reviews
+    </a>
+
+    <a href="#location">
+      Location
     </a>
 
     <a
@@ -1989,14 +1976,14 @@ footer{
           class="project-tag"
           id="projectTag">
 
-          Completed interior · 01
+          Living Room Design · 01
 
         </span>
 
 
         <h2 id="projectTitle">
 
-          Interior Project
+          Modern Living Room Interior
 
         </h2>
 
@@ -2056,11 +2043,99 @@ footer{
 
 
 <!-- =========================
-     CRAFT
+     TEAM SECTION
 ========================= -->
 
 <section
   class="cream-section"
+  id="team">
+
+  <div class="container craft-grid">
+
+
+    <div class="craft-copy reveal">
+
+      <div class="kicker">
+        05 / Dedicated Craftsmanship
+      </div>
+
+
+      <h2 class="section-title">
+
+        The hands and hearts<br>
+        behind every creation.
+
+      </h2>
+
+
+      <p>
+
+        Our skilled artisans and design experts pour years of generational expertise, relentless effort, and uncompromising passion into every detail. From selecting the finest rich wood grains to executing precise assembly, our team ensures that every piece stands as a testament to exceptional quality.
+
+      </p>
+
+
+      <div class="detail-list">
+
+
+        <div class="detail">
+
+          <b>01</b>
+
+          <span>
+            Decades of collective carpentry and design expertise.
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <b>02</b>
+
+          <span>
+            Rigorous quality checks at every phase of production.
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <b>03</b>
+
+          <span>
+            Personalized attention given to every client's unique vision.
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="craft-image reveal delay-2">
+
+      <img
+        src="t1.jpeg"
+        alt="Furniture by Sharmaji expert team">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CRAFT
+========================= -->
+
+<section
+  class="white-section"
   id="craft">
 
   <div class="container craft-grid">
@@ -2078,7 +2153,7 @@ footer{
     <div class="craft-copy reveal delay-2">
 
       <div class="kicker">
-        05 / The craft
+        06 / The craft
       </div>
 
 
@@ -2162,7 +2237,7 @@ footer{
 ========================= -->
 
 <section
-  class="white-section">
+  class="cream-section">
 
   <div class="container">
 
@@ -2172,7 +2247,7 @@ footer{
       <div>
 
         <div class="kicker">
-          06 / Our approach
+          07 / Our approach
         </div>
 
         <h2 class="section-title">
@@ -2294,7 +2369,7 @@ footer{
       <div>
 
         <div class="kicker">
-          07 / Why Sharmaji
+          08 / Why Sharmaji
         </div>
 
         <h2 class="section-title">
@@ -2402,6 +2477,277 @@ footer{
 
 
 <!-- =========================
+     FAQS
+========================= -->
+
+<section
+  class="white-section"
+  id="faqs">
+
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          09 / Common Questions
+        </div>
+
+        <h2 class="section-title">
+
+          Everything you need<br>
+          to know.
+
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        Clear answers to help you understand our custom furniture creation and complete interior design services.
+
+      </p>
+
+    </div>
+
+
+    <div class="why-grid" style="grid-template-columns: 1fr 1fr; background:transparent; gap:20px;">
+
+
+      <div class="why-card reveal" style="background:var(--cream); color:var(--black);">
+
+        <span style="color:var(--wood);">
+          01
+        </span>
+
+        <h3 style="color:var(--black); margin:20px 0 10px; font-size:22px;">
+          Do you customize furniture dimensions?
+        </h3>
+
+        <p style="color:var(--muted);">
+          Yes, every piece of furniture can be completely tailored to fit the exact measurements, layout, and aesthetic requirements of your room.
+        </p>
+
+      </div>
+
+
+      <div class="why-card reveal delay-1" style="background:var(--cream); color:var(--black);">
+
+        <span style="color:var(--wood);">
+          02
+        </span>
+
+        <h3 style="color:var(--black); margin:20px 0 10px; font-size:22px;">
+          What is the typical project timeline?
+        </h3>
+
+        <p style="color:var(--muted);">
+          Timelines vary based on scale—individual custom pieces typically take 2-3 weeks, while comprehensive interior projects range from 4 to 8 weeks.
+        </p>
+
+      </div>
+
+
+      <div class="why-card reveal delay-2" style="background:var(--cream); color:var(--black);">
+
+        <span style="color:var(--wood);">
+          03
+        </span>
+
+        <h3 style="color:var(--black); margin:20px 0 10px; font-size:22px;">
+          What types of wood and materials do you use?
+        </h3>
+
+        <p style="color:var(--muted);">
+          We source premium quality solid woods, engineered boards, durable hardware, and high-grade laminates/veneers suited for long-lasting durability.
+        </p>
+
+      </div>
+
+
+      <div class="why-card reveal delay-3" style="background:var(--cream); color:var(--black);">
+
+        <span style="color:var(--wood);">
+          04
+        </span>
+
+        <h3 style="color:var(--black); margin:20px 0 10px; font-size:22px;">
+          How can we start a consultation?
+        </h3>
+
+        <p style="color:var(--muted);">
+          You can easily reach out to us directly via WhatsApp or phone call using the links on our website to share your floor plans or design ideas.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section
+  class="wood-section"
+  id="reviews">
+
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          10 / Client Testimonials
+        </div>
+
+        <h2 class="section-title">
+
+          Trusted by homeowners<br>
+          and spaces alike.
+
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        Read what our valued clients have to say about our craftsmanship, dedication, and transforming their interiors.
+
+      </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+      <div class="why-card reveal">
+
+        <span style="color:#f5c518; letter-spacing:2px;">
+          ★★★★★
+        </span>
+
+        <h3 style="margin:20px 0 10px; font-size:22px;">
+          "Exceptional Quality"
+        </h3>
+
+        <p>
+          "Sharmaji's team built custom wardrobes and a TV unit for our home in Mandsaur. The wood finish and precision fit exceeded our expectations entirely!"
+        </p>
+
+        <small style="display:block; margin-top:15px; color:#d7b894; font-weight:600; text-transform:uppercase; letter-spacing:.1em; font-size:10px;">
+          — Rajesh Patidar
+        </small>
+
+      </div>
+
+
+      <div class="why-card reveal delay-1">
+
+        <span style="color:#f5c518; letter-spacing:2px;">
+          ★★★★★
+        </span>
+
+        <h3 style="margin:20px 0 10px; font-size:22px;">
+          "Professional & Reliable"
+        </h3>
+
+        <p>
+          "From concept to installation, their approach to interior design is seamless. They really understand how to blend furniture with room space."
+        </p>
+
+        <small style="display:block; margin-top:15px; color:#d7b894; font-weight:600; text-transform:uppercase; letter-spacing:.1em; font-size:10px;">
+          — Amit Sharma
+        </small>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     LOCATION / GOOGLE MAPS
+========================= -->
+
+<section
+  class="white-section"
+  id="location">
+
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          11 / Visit Our Workshop
+        </div>
+
+        <h2 class="section-title">
+
+          Find us in<br>
+          Mandsaur.
+
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        Drop by our location or connect with us to discuss your custom woodwork and interior projects in person.
+
+      </p>
+
+    </div>
+
+
+    <div class="reveal" style="width:100%; height:450px; border-radius:8px; overflow:hidden; box-shadow:var(--shadow);">
+
+      <iframe
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.22851235467!2d75.068!3d24.035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963fc5f00000001%3A0x0!2zMjTCsDAyJzA2LjAiTiA3NcKwMDQnMDguOCJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin">
+      </iframe>
+
+    </div>
+
+
+    <div style="margin-top:25px; text-align:center; color:var(--muted); font-size:14px; line-height:1.8;" class="reveal">
+      <strong>Address:</strong> NEELKANTH RESTAURANT, Mall Godam Road, Railway Station Rd, Dashrath Nagar, Nai Abaadi, Mandsaur, Madhya Pradesh 458001
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
      CTA
 ========================= -->
 
@@ -2415,7 +2761,7 @@ footer{
       class="kicker"
       style="justify-content:center">
 
-      08 / Start a project
+      12 / Start a project
 
     </div>
 
@@ -2467,7 +2813,7 @@ footer{
     <div class="contact-copy reveal">
 
       <div class="kicker">
-        09 / Contact
+        13 / Contact
       </div>
 
 
@@ -2695,6 +3041,10 @@ footer{
 
         <a href="#projects">
           Interiors
+        </a>
+
+        <a href="#team">
+          Team
         </a>
 
       </div>
@@ -3201,7 +3551,7 @@ document
 
 
 /* =========================
-   PROJECT SLIDER
+   PROJECT SLIDER (c1-c16.jpeg with taglines)
 ========================= */
 
 const projects =
@@ -3212,9 +3562,44 @@ Array.from(
     image:`c${i+1}.jpeg`,
 
     title:
-      `Interior Project ${
-        String(i+1).padStart(2,"0")
-      }`
+    [
+      "Modern Living Room Interior",
+      "Luxury Bedroom Wardrobe",
+      "Minimalist Dining Space",
+      "Executive Office Setup",
+      "Custom Kitchen Cabinetry",
+      "Cozy Lounge Area",
+      "Contemporary Villa Interior",
+      "Classic Wooden Bedroom",
+      "Sophisticated Apartment",
+      "Entertainment & TV Unit",
+      "Grand Foyer & Reception",
+      "Boutique Retail Space",
+      "Custom Wall Panelling",
+      "Duplex Staircase & Railing",
+      "Penthouse Master Suite",
+      "Signature Sharmaji Interior"
+    ][i],
+
+    tag:
+    [
+      "Living Room Design · 01",
+      "Bedroom Wardrobe · 02",
+      "Dining Space · 03",
+      "Office Interior · 04",
+      "Kitchen Customization · 05",
+      "Lounge Styling · 06",
+      "Villa Project · 07",
+      "Wooden Craft · 08",
+      "Apartment Styling · 09",
+      "Entertainment Unit · 10",
+      "Foyer Concept · 11",
+      "Commercial Interior · 12",
+      "Wall Panelling · 13",
+      "Architectural Woodwork · 14",
+      "Master Suite · 15",
+      "Signature Project · 16"
+    ][i]
 
   })
 );
@@ -3259,9 +3644,7 @@ function updateProject(){
 
 
     projectTag.textContent =
-      `Completed interior · ${
-        String(projectIndex+1).padStart(2,"0")
-      }`;
+      item.tag;
 
 
     projectFrame.classList.remove(
