@@ -87,7 +87,7 @@ button{
   z-index:9999;
   display:grid;
   place-items:center;
-  transition:.8s var(--ease);
+  transition:.4s var(--ease);
 }
 
 .preloader.hide{
@@ -668,7 +668,11 @@ section{
 .product-image img{
   height:100%;
   object-fit:cover;
-  transition: opacity 0.2s ease;
+  transition:opacity 0.15s ease;
+}
+
+.product-image.changing img{
+  opacity:0.2;
 }
 
 .product-number{
@@ -740,7 +744,11 @@ section{
 .project-frame img{
   height:100%;
   object-fit:cover;
-  transition: opacity 0.2s ease;
+  transition:opacity 0.15s ease;
+}
+
+.project-frame.changing img{
+  opacity:0.2;
 }
 
 
@@ -3240,7 +3248,7 @@ window.addEventListener("load",()=>{
       .getElementById("preloader")
       .classList.add("hide");
 
-  },650);
+  },200);
 
 });
 
@@ -3455,6 +3463,9 @@ let productIndex=0;
 const productImg =
   document.getElementById("productImg");
 
+const productImage =
+  document.getElementById("productImage");
+
 const productTitle =
   document.getElementById("productTitle");
 
@@ -3466,21 +3477,24 @@ const productNumber =
 
 
 function updateProduct(){
+
+  productImage.classList.add("changing");
+
   const item = products[productIndex];
 
-  productImg.style.opacity = 0;
+  productImg.src = item.image;
+  productImg.alt = item.title;
+  productTitle.textContent = item.title;
 
-  setTimeout(() => {
-    productImg.src = item.image;
-    productImg.alt = item.title;
-    productTitle.textContent = item.title;
+  const number = String(productIndex+1).padStart(2,"0");
 
-    const number = String(productIndex + 1).padStart(2, "0");
-    productCount.textContent = `Product ${number} / 20`;
-    productNumber.textContent = `${number} / 20`;
+  productCount.textContent = `Product ${number} / 20`;
+  productNumber.textContent = `${number} / 20`;
 
-    productImg.style.opacity = 1;
-  }, 150);
+  setTimeout(()=>{
+    productImage.classList.remove("changing");
+  }, 100);
+
 }
 
 
@@ -3568,6 +3582,9 @@ Array.from(
 let projectIndex=0;
 
 
+const projectFrame =
+  document.getElementById("projectFrame");
+
 const projectImg =
   document.getElementById("projectImg");
 
@@ -3579,18 +3596,20 @@ const projectTag =
 
 
 function updateProject(){
+
+  projectFrame.classList.add("changing");
+
   const item = projects[projectIndex];
 
-  projectImg.style.opacity = 0;
+  projectImg.src = item.image;
+  projectImg.alt = item.title;
+  projectTitle.textContent = item.title;
+  projectTag.textContent = item.tag;
 
-  setTimeout(() => {
-    projectImg.src = item.image;
-    projectImg.alt = item.title;
-    projectTitle.textContent = item.title;
-    projectTag.textContent = item.tag;
+  setTimeout(()=>{
+    projectFrame.classList.remove("changing");
+  }, 100);
 
-    projectImg.style.opacity = 1;
-  }, 150);
 }
 
 
