@@ -668,14 +668,7 @@ section{
 .product-image img{
   height:100%;
   object-fit:cover;
-  transition:
-    opacity .25s,
-    transform .8s var(--ease);
-}
-
-.product-image.changing img{
-  opacity:0;
-  transform:scale(1.04);
+  transition: opacity 0.2s ease;
 }
 
 .product-number{
@@ -747,12 +740,7 @@ section{
 .project-frame img{
   height:100%;
   object-fit:cover;
-  transition:.8s var(--ease);
-}
-
-.project-frame.changing img{
-  opacity:0;
-  transform:scale(1.04);
+  transition: opacity 0.2s ease;
 }
 
 
@@ -3467,9 +3455,6 @@ let productIndex=0;
 const productImg =
   document.getElementById("productImg");
 
-const productImage =
-  document.getElementById("productImage");
-
 const productTitle =
   document.getElementById("productTitle");
 
@@ -3481,46 +3466,21 @@ const productNumber =
 
 
 function updateProduct(){
+  const item = products[productIndex];
 
-  productImage.classList.add("changing");
+  productImg.style.opacity = 0;
 
+  setTimeout(() => {
+    productImg.src = item.image;
+    productImg.alt = item.title;
+    productTitle.textContent = item.title;
 
-  setTimeout(()=>{
+    const number = String(productIndex + 1).padStart(2, "0");
+    productCount.textContent = `Product ${number} / 20`;
+    productNumber.textContent = `${number} / 20`;
 
-    const item =
-      products[productIndex];
-
-
-    productImg.src =
-      item.image;
-
-    productImg.alt =
-      item.title;
-
-
-    productTitle.textContent =
-      item.title;
-
-
-    const number =
-      String(productIndex+1)
-        .padStart(2,"0");
-
-
-    productCount.textContent =
-      `Product ${number} / 20`;
-
-
-    productNumber.textContent =
-      `${number} / 20`;
-
-
-    productImage.classList.remove(
-      "changing"
-    );
-
-  },180);
-
+    productImg.style.opacity = 1;
+  }, 150);
 }
 
 
@@ -3608,9 +3568,6 @@ Array.from(
 let projectIndex=0;
 
 
-const projectFrame =
-  document.getElementById("projectFrame");
-
 const projectImg =
   document.getElementById("projectImg");
 
@@ -3622,37 +3579,18 @@ const projectTag =
 
 
 function updateProject(){
+  const item = projects[projectIndex];
 
-  projectFrame.classList.add("changing");
+  projectImg.style.opacity = 0;
 
+  setTimeout(() => {
+    projectImg.src = item.image;
+    projectImg.alt = item.title;
+    projectTitle.textContent = item.title;
+    projectTag.textContent = item.tag;
 
-  setTimeout(()=>{
-
-    const item =
-      projects[projectIndex];
-
-
-    projectImg.src =
-      item.image;
-
-    projectImg.alt =
-      item.title;
-
-
-    projectTitle.textContent =
-      item.title;
-
-
-    projectTag.textContent =
-      item.tag;
-
-
-    projectFrame.classList.remove(
-      "changing"
-    );
-
-  },180);
-
+    projectImg.style.opacity = 1;
+  }, 150);
 }
 
 
